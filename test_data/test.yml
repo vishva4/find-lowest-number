@@ -1,0 +1,36 @@
+name: Test Find Lowest Number
+
+on:
+  push:
+
+  jobs:
+    test:
+      NAME: Run Application Tests
+      runs-on: ubuntu-latest 
+
+      steps:
+        -name: Check out repository
+         uses: actions/setup-python@v5
+         with:
+         python-version: '3.x'
+
+         name: Test 1 - Ten numbers 
+         run:
+            python3 find_lowest_number.py test_data/test1_input.txt
+  test1_output.txt
+          diff test_data/test1_expexted.txt test1_output.txt
+
+      -name: Test 2 - One number
+      run:
+      python3 find_lowest_number.py test_data/test2_input.txt
+  test2_output.txt
+          diff test_data/test2-expected.txt test2_output.txt
+
+        -name: Test 3 - Blank file 
+          run: 
+          python3 find_lowest_number.py test_data/test3_input.txt 
+  test3_output.txt
+        diff test_data/test3_expected.txt test3_output.txt
+
+
+         
